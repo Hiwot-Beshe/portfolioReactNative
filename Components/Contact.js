@@ -8,65 +8,68 @@ import {
 	Pressable,
 	Linking,
 	useWindowDimensions,
+	ScrollView,
 } from "react-native";
 function Contact() {
-     const { width, height } = useWindowDimensions();
-			const widthBreakpoint = 500;
+	const { width, height } = useWindowDimensions();
+	const widthBreakpoint = 500;
 	const [name, setName] = useState("");
 	const [subject, setSubject] = useState("");
 	const [message, setMessage] = useState("");
 	const sendContactForm = () => {
 		let mailto = `mailto:beshehiwot@gmail.com`;
 		mailto += `?subject=${subject}`;
-		mailto += `& body=${message}`;
+		mailto += `&body=${message}`;
 		Linking.openURL(mailto);
-    };
-   
+	};
+
 	return (
-		<SafeAreaView>
-			<View Style={styles.contWarp}>
-				<View
-					style={[width > widthBreakpoint ? styles.lgWidth : styles.xsMobile]}
-				>
-					<View style={styles.titleWrap}>
-						<Text style={styles.title}>Education</Text>
-					</View>
-					<View style={styles.inputWrap}>
-						<Text style={styles.inputTitle}> Name*</Text>
-						<TextInput
-							style={styles.input}
-							onChangeText={(e) => setName(e)}
-							value={name}
-							placeholder="Name"
-						/>
+		<ScrollView>
+			<SafeAreaView>
+				<View Style={styles.contWarp}>
+					<View
+						style={[width > widthBreakpoint ? styles.lgWidth : styles.xsMobile]}
+					>
+						<View style={styles.titleWrap}>
+							<Text style={styles.title}>Education</Text>
+						</View>
+						<View style={styles.inputWrap}>
+							<Text style={styles.inputTitle}> Name*</Text>
+							<TextInput
+								style={styles.input}
+								onChangeText={(e) => setName(e)}
+								value={name}
+								placeholder="Name"
+							/>
 
-						<Text style={styles.inputTitle}>Subject*</Text>
-						<TextInput
-							style={styles.input}
-							onChangeText={(text) => setSubject(text)}
-							value={subject}
-							placeholder="Subject"
-						/>
+							<Text style={styles.inputTitle}>Subject*</Text>
+							<TextInput
+								style={styles.input}
+								onChangeText={(text) => setSubject(text)}
+								value={subject}
+								placeholder="Subject"
+							/>
 
-						<Text style={styles.inputTitle}>Message</Text>
-						<TextInput
-							style={styles.input1}
-							onChangeText={(text) => setMessage(text)}
-							value={message}
-							placeholder="Insert your Message!"
-							numberOfLines={10}
-							multiline={true}
-						/>
+							<Text style={styles.inputTitle}>Message</Text>
+							<TextInput
+								style={styles.input1}
+								onChangeText={(text) => setMessage(text)}
+								value={message}
+								placeholder="Insert your Message!"
+								numberOfLines={10}
+								multiline={true}
+							/>
 
-						<Pressable onPress={sendContactForm}>
-							<View>
-								<Text style={styles.btn}>Submit</Text>
-							</View>
-						</Pressable>
+							<Pressable onPress={sendContactForm}>
+								<View>
+									<Text style={styles.btn}>Submit</Text>
+								</View>
+							</Pressable>
+						</View>
 					</View>
 				</View>
-			</View>
-		</SafeAreaView>
+			</SafeAreaView>
+		</ScrollView>
 	);
 }
 const styles = StyleSheet.create({

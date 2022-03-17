@@ -5,63 +5,55 @@ import {
 	Text,
 	Pressable,
     useWindowDimensions,
-    Link,
+    Linking,
 	TouchableHighlight,
 } from "react-native";
-
+import { SocialIcon } from "react-native-elements";
+import { FontAwesome5, Foundation, Zocial } from "@expo/vector-icons";
 function Footer () {
 	// const { width, height } = useWindowDimensions();
 	// const widthBreakpoint = 500;
 	return (
 		<View Style={styles.contWarp}>
+			<TouchableHighlight>
+				<View style={styles.lgWidth}>
+					<Pressable
+						onPress={() => {
+							Linking.openURL("https://github.com/Hiwot-Beshe");
+						}}
+					>
+						<Text style={styles.expOneText}>
+							<FontAwesome5 name="github" size={10} color="#cdcdcd" />
+							Hiwot-Beshe
+						</Text>
+					</Pressable>
+
+					<Pressable
+						onPress={() => {
+							Linking.openURL("https://www.linkedin.com/in/hiwot-beshe");
+						}}
+					>
+						<Text style={styles.expOneText}>
+							<Foundation name="social-linkedin" size={10} color="#cdcdcd" />
+							hiwot-beshe
+						</Text>
+					</Pressable>
+					<Pressable
+						onPress={() => {
+							Linking.openURL("mailto: beshehiwot@gmail.com");
+						}}
+					>
+						<Text style={styles.expOneText}>
+							<Zocial name="email" size={10} color="#cdcdcd" />
+							beshehiwot@gmail.com
+						</Text>
+					</Pressable>
+				</View>
+			</TouchableHighlight>
 			<View Style={styles.lgWidth}>
 				<Text style={styles.title}>Hiwot Beshe</Text>
 				<Text style={styles.expOne}>Front-end Developer</Text>
 			</View>
-			
-			<TouchableHighlight>
-				<View style={styles.lgWidth}>
-					<Text
-						name="Profile"
-						onPress={() => setPage("Profile")}
-						style={styles.expOneText}
-					>
-						Profile
-					</Text>
-
-					<Text
-						name="about"
-						onPress={() => setPage("About")}
-						style={styles.expOneText}
-					>
-						About
-					</Text>
-
-					<Text
-						name="Experiences"
-						onPress={() => setPage("Experiences")}
-						style={styles.expOneText}
-					>
-						Experiences
-					</Text>
-
-					<Text
-						name="Education"
-						onPress={() => setPage("Education")}
-						style={styles.expOneText}
-					>
-						Education
-					</Text>
-
-					<Text
-						name="Contact"
-						onPress={() => setPage("Contact")}
-						style={styles.expOneText}
-					>
-						Contact
-					</Text>
-				</View>
-			</TouchableHighlight>
 		</View>
 	);
 }
@@ -84,15 +76,16 @@ const styles = StyleSheet.create({
 		color: "#fff",
 		alignItems: "center",
 		// padding: 10,
-		margin: 5,
+        margin: 5,
+        marginTop:5,
 	},
 	expOneText: {
 		color: "#f7c004",
 		backgroundColor: "#1a1a1a",
 		fontWeight: "bold",
-		margin: 2,
-		fontSize: 14,
-		padding: 5,
+		margin: 1,
+		fontSize: 13,
+		padding: 7,
 	},
 	expOne: {
 		color: "#f7c004",
@@ -108,7 +101,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#1a1a1a",
 		fontWeight: "bold",
 		// margin: 2,
-		marginTop: 50,
+		// marginTop: 50,
 		fontSize: 30,
 		paddingHorizontal: 70,
 	},

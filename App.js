@@ -7,6 +7,7 @@ import Education from "./Components/Education";
 import { useState } from "react";
 import Contact from "./Components/Contact";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 export default function App() {
 	const [page, setPage] = useState("Profile");
@@ -19,7 +20,8 @@ export default function App() {
 				{page === "Experiences" && <Experiences />}
 				{page === "Education" && <Education />}
 				{page === "Contact" && <Contact />}
-			{/* </ScrollView> */}
+      {/* </ScrollView> */}
+      <Footer/>
 			<StatusBar style="auto" />
 		</SafeAreaView>
 	);

@@ -6,6 +6,7 @@ import {
 	Pressable,
     useWindowDimensions,
     TouchableHighlight,
+    Linking,
 } from "react-native";
 
 function Header({ setPage }) {
@@ -17,25 +18,7 @@ function Header({ setPage }) {
 				<Text style={styles.title}>Hiwot Beshe</Text>
 				<Text style={styles.expOne}>Front-end Developer</Text>
 			</View>
-			{/* <View Style={styles.lgWidth}>
-				<Pressable onPress={() => setPage("Profile")}>
-					<Text name="Profile" Style={styles.lgWidth}>
-						Profile
-					</Text>
-				</Pressable>
-				<Pressable onPress={() => setPage("About")}>
-					<Text name="About">About</Text>
-				</Pressable>
-				<Pressable onPress={() => setPage("Experiences")}>
-					<Text name="Experiences">Experiences</Text>
-				</Pressable>
-				<Pressable onPress={() => setPage("Education")}>
-					<Text name="Education">Education</Text>
-				</Pressable>
-				<Pressable onPress={() => setPage("Contact")}>
-					<Text name="Contact">Contact</Text>
-				</Pressable>
-			</View> */}
+	
 			<TouchableHighlight>
 				<View style={styles.lgWidth}>
 					<Text
